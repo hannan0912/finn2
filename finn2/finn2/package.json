@@ -1,0 +1,22 @@
+{
+  "name": "finn2",
+  "version": "1.0.0",
+  "description": "finn2 nettside for netthandel. Teknoliprosjekt 2023",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "finn2"
+  },
+  "author": "gruppe10",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "sqlite3": "^5.1.6"
+  }
+}

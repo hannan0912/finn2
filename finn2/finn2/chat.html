@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Side</title>
     <link rel="stylesheet" href="chat.css"> <!-- Lenker til chat.css -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 <h1>Chat Rom</h1>
@@ -12,6 +13,15 @@
 <div id="chatBox">
     <!-- Dette området vil vise chatmeldinger -->
 </div>
+
+<input type="text" id="sender" placeholder="Ditt navn...">
+
+<!-- Dropdown-liste for mottakere -->
+<select id="recipient">
+    <option value="Alice">Alice</option>
+    <option value="Bob">Bob</option>
+    <!-- Du kan legge til flere brukere her -->
+</select>
 
 <input type="text" id="userMessage" placeholder="Skriv din melding her...">
 <button onclick="sendMessage()">Send</button>
