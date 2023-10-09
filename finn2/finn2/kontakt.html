@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kontakt Oss</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1>Nettbutikk</h1>
+            <nav>
+                <ul>
+                    <li><a href="hjem.html">Hjem</a></li>
+                    <li><a href="forside.html">Kjøp</a></li>
+                    <li><a href="selg.html">Selg</a></li>
+                    <li><a href="handlekurv.html">Handlekurv</a></li> <!-- Lenken til handlekurvsiden -->
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="kontakt.html">Kontakt oss</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Kontakt Oss</h1>
+        <div id="contact-form">
+            <label for="name">Navn:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">E-postadresse:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="subject">Emne:</label>
+            <input type="text" id="subject" name="subject" required><br><br>
+
+            <label for="message">Melding:</label>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <button id="submitBtn">Send</button>
+        </div>
+    </div>
+
+    <script src="daim.js"></script>
+</body>
+
+</html>

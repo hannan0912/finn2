@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startside</title>
+    <link rel="stylesheet" href="logg_in.css"> <!-- Lenker til den eksterne CSS-filen -->
+</head>
+<body>
+<h1>Velkommen til vår side</h1>
+<p>Velg en bruker:</p>
+<select id="userSelect">
+    <option value="Alice">Alice</option>
+    <option value="Bob">Bob</option>
+</select>
+<button id="loginBtn" onclick="login()">Logg inn</button>
+
+<script>
+    function login() {
+        const user = document.getElementById('userSelect').value;
+        alert(user + " har logget inn!");
+    }
+</script>
+
+<script src="logg_in.js"></script>
+
+</body>
+</html>
