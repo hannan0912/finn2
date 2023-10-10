@@ -37,7 +37,7 @@ function sendMessage() {
         console.error('Ingen innlogget bruker funnet.');
         return;
     }
-    const recipient = document.getElementById('recipient').value;
+    const recipient = document.getElementById('recipientSelect').value;
     const content = document.getElementById('userMessage').value;
 
     axios.post('http://localhost:3000/messages', {
@@ -50,7 +50,6 @@ function sendMessage() {
                 sender: sender,
                 content: content
             });
-            // Henter meldingene på nytt for å vise den nylig sendte meldingen.
             fetchMessagesForLoggedInUser(recipient);
         })
         .catch(error => {
@@ -60,7 +59,7 @@ function sendMessage() {
 
 function displayMessages(messages) {
     const chatBox = document.getElementById('chatBox');
-    chatBox.innerHTML = ''; // Fjern tidligere meldinger
+    chatBox.innerHTML = '';
     messages.forEach(message => {
         const messageElement = document.createElement('p');
         messageElement.textContent = `${message.sender}: ${message.content}`;
@@ -74,13 +73,31 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Ingen innlogget bruker funnet.');
         return;
     }
-    document.getElementById('sender').value = loggedInUser;
-    const recipient = document.getElementById('recipient').value;
+    const recipient = document.getElementById('recipientSelect').value;
     fetchMessagesForLoggedInUser(recipient);
 });
 
-// Når mottakeren endres, hent meldingene på nytt.
-document.getElementById('recipient').addEventListener('change', function() {
+document.getElementById('recipientSelect').addEventListener('change', function() {
     const recipient = this.value;
     fetchMessagesForLoggedInUser(recipient);
 });
+function clearChat() {
+    const sender = localStorage.getItem('loggedInUser');
+    const recipient = document.getElementById('recipientSelect').value;
+
+    axios.delete('http://localhost:3000/messages', {
+        params: {
+            sender: sender,
+            recipient: recipient
+        }
+    })
+        .then(response => {
+            console.log(response.data.message);
+            const chatBox = document.getElementById('chatBox');
+            chatBox.innerHTML = ''; // Clear the chat display
+        })
+        .catch(error => {
+            console.error('Error deleting messages:', error);
+        });
+}
+

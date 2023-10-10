@@ -78,3 +78,20 @@ app.post('/messages', (req, res) => {
 app.listen(port, () => {
     console.log(`Serveren kjører på http://localhost:${port}`);
 });
+app.delete('/messages', (req, res) => {
+    const sender = req.query.sender;
+    const recipient = req.query.recipient;
+
+    if (!sender || !recipient) {
+        return res.status(400).json({ error: 'Sender and recipient query parameters are required.' });
+    }
+
+    const sql = 'DELETE FROM messages WHERE (sender = ? AND recipient = ?) OR (sender = ? AND recipient = ?)';
+    db.run(sql, [sender, recipient, recipient, sender], (err) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({ message: 'Messages deleted successfully.' });
+    });
+});
+
