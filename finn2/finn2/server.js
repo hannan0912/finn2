@@ -52,6 +52,28 @@ app.get('/messages', (req, res) => {
         res.json(messages);
     });
 });
+app.post('/messages', (req, res) => {
+    const { sender, recipient, content } = req.body;
+
+    if (!sender || !recipient || !content) {
+        return res.status(400).json({ error: 'Sender, recipient, and content are required.' });
+    }
+
+    const timestamp = new Date().toISOString();
+    const sql = 'INSERT INTO messages(sender, recipient, content, timestamp) VALUES (?, ?, ?, ?)';
+    db.run(sql, [sender, recipient, content, timestamp], function (err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        res.json({
+            id: this.lastID,
+            sender: sender,
+            recipient: recipient,
+            content: content,
+            timestamp: timestamp
+        });
+    });
+});
 
 app.listen(port, () => {
     console.log(`Serveren kjører på http://localhost:${port}`);

@@ -14,13 +14,14 @@
     <!-- Dette området vil vise chatmeldinger -->
 </div>
 
-<input type="text" id="sender" placeholder="Ditt navn...">
+<!-- Vi fjerner innskrivingsfeltet for sender fordi senderen blir nå bestemt av den innloggede brukeren -->
+<!-- <input type="text" id="sender" placeholder="Ditt navn..."> -->
 
-<!-- Dropdown-liste for mottakere -->
-<select id="recipient">
+<label for="recipientSelect">Mottaker:</label>
+<select id="recipientSelect">
     <option value="Alice">Alice</option>
     <option value="Bob">Bob</option>
-    <!-- Du kan legge til flere brukere her -->
+    <!-- Du kan legge til flere mottakere her om nødvendig -->
 </select>
 
 <input type="text" id="userMessage" placeholder="Skriv din melding her...">

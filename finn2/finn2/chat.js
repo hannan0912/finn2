@@ -1,19 +1,28 @@
+// Hente innlogget bruker fra localStorage
+const loggedInUser = localStorage.getItem('loggedInUser');
+
 // Hente meldinger for en gitt sender og mottaker
-function fetchMessages(sender, recipient) {
-    axios.get('/messages', {
+function fetchMessagesForLoggedInUser(recipient) {
+    const sender = localStorage.getItem('loggedInUser');
+    if (!sender) {
+        console.error('Ingen innlogget bruker funnet.');
+        return;
+    }
+
+    axios.get('http://localhost:3000/messages', {
         params: {
             sender: sender,
             recipient: recipient
         }
     })
         .then(response => {
-            // Vis meldingene på skjermen
             displayMessages(response.data);
         })
         .catch(error => {
             console.error('Feil ved henting av meldinger:', error);
         });
 }
+
 function addMessageToChat(message) {
     const chatBox = document.getElementById('chatBox');
     const messageElement = document.createElement('p');
@@ -23,21 +32,26 @@ function addMessageToChat(message) {
 
 // Send en melding fra en sender til en mottaker
 function sendMessage() {
-    const sender = document.getElementById('sender').value;
+    const sender = localStorage.getItem('loggedInUser');
+    if (!sender) {
+        console.error('Ingen innlogget bruker funnet.');
+        return;
+    }
     const recipient = document.getElementById('recipient').value;
     const content = document.getElementById('userMessage').value;
 
-    axios.post('/messages', {
+    axios.post('http://localhost:3000/messages', {
         sender: sender,
         recipient: recipient,
         content: content
     })
         .then(response => {
-            // Legg til den sendte meldingen til chatboksen
             addMessageToChat({
                 sender: sender,
                 content: content
             });
+            // Henter meldingene på nytt for å vise den nylig sendte meldingen.
+            fetchMessagesForLoggedInUser(recipient);
         })
         .catch(error => {
             console.error('Feil ved sending av melding:', error);
@@ -54,3 +68,19 @@ function displayMessages(messages) {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    if (!loggedInUser) {
+        console.error('Ingen innlogget bruker funnet.');
+        return;
+    }
+    document.getElementById('sender').value = loggedInUser;
+    const recipient = document.getElementById('recipient').value;
+    fetchMessagesForLoggedInUser(recipient);
+});
+
+// Når mottakeren endres, hent meldingene på nytt.
+document.getElementById('recipient').addEventListener('change', function() {
+    const recipient = this.value;
+    fetchMessagesForLoggedInUser(recipient);
+});

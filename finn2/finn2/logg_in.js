@@ -1,5 +1,8 @@
 document.getElementById("loginBtn").addEventListener("click", function(){
-    // Her kan du legge til enkel validering av brukernavn/passord om nødvendig
+    const user = document.getElementById('userSelect').value;
+
+    // Lagre brukerens navn i localStorage
+    localStorage.setItem('loggedInUser', user);
 
     // Naviger til forsiden
     window.location.href = "forside.html"; // Angi den faktiske filnavnet for forsiden her
