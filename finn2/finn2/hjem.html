@@ -4,38 +4,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hjem.css">
     <title>Gjenvinning og Bruktmarked</title>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>Velkommen til Gjenvinning og Bruktmarked</h1>
-            <nav>
-                <ul>
-                    <li><a href="hjem.html">Hjem</a></li>
-                    <li><a href="forside.html">Kjøp</a></li>
-                    <li><a href="selg.html">Selg</a></li>
-                    <li><a href="handlekurv.html">Handlekurv</a></li> <!-- Lenken til handlekurvsiden -->
-                    <li><a href="leaderboard.html">Leaderboard</a></li>
-                    <li><a href="kontakt.html">Kontakt oss</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+<header>
     <div class="container">
-        <section class="about">
-            <h2>Hvorfor er Gjenvinning Viktig?</h2>
-            <p>Gjenvinning spiller en avgjørende rolle i å bevare miljøet og redusere vår påvirkning på planeten. Ved å resirkulere materialer og kjøpe brukte varer, bidrar vi til å redusere avfall, spare energi og bevare naturressurser. Gjenvinning er en enkel handling som har stor innvirkning på jorden vår og kommende generasjoner.</p>
-        </section>
-
-        <section class="buy-sell">
-            <h2>Kjøp og Selg Brukte Varer</h2>
-            <p>Ønsker du å bidra til gjenvinning? Kjøp brukte varer for å redusere behovet for produksjon av nye ting. Du kan også selge dine brukte varer til andre, slik at de kan få nytt liv hos noen andre. Vårt marked tilbyr et bredt utvalg av brukte produkter for kjøp og salg.</p>
-        </section>
+        <h1>Velkommen til Gjenvinning og Bruktmarked</h1>
+        <nav>
+            <ul>
+                <li><a href="hjem.html">Hjem</a></li>
+                <li><a href="kjøp.html">Kjøp</a></li>
+                <li><a href="selg.html">Selg</a></li>
+                <li><a href="handlekurv.html">Handlekurv</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="kontakt.html">Kontakt oss</a></li>
+            </ul>
+        </nav><button class="logout-button">Logg ut</button>
     </div>
+    <script src="logg_ut.js"></script>
+</header>
+
+<div class="container">
+    <section class="about">
+        <!-- ... (samme som før) ... -->
+    </section>
+
+    <section class="buy-sell">
+        <!-- ... (samme som før) ... -->
+    </section>
+
+    <section class="top-products">
+        <h2>Mest solgte produkter</h2>
+        <div class="horizontal-list">
+            <div class="product-item">
+                <img src="path/to/image1.jpg" alt="Produktbilde 1">
+                <h3>Produktnavn 1</h3>
+                <p>Kort beskrivelse av produktet...</p>
+                <span>Pris: $xx.xx</span>
+            </div>
+            <div class="product-item">
+                <img src="path/to/image2.jpg" alt="Produktbilde 2">
+                <h3>Produktnavn 2</h3>
+                <p>Kort beskrivelse av produktet...</p>
+                <span>Pris: $xx.xx</span>
+            </div>
+            <!-- Gjenta for flere produkter -->
+        </div>
+    </section>
+
+    <section class="top-sellers">
+        <h2>Bedrifter med best omdømme</h2>
+        <div class="horizontal-list">
+            <div class="seller-item">
+                <h3>Bedriftnavn 1</h3>
+                <p>Kort beskrivelse av bedriften...</p>
+            </div>
+            <!-- Gjenta for flere bedrifter -->
+        </div>
+    </section>
+
+    <section class="recently-added">
+        <h2>Nylig lagt til produkter</h2>
+        <div class="horizontal-list">
+            <div class="product-item">
+                <img src="path/to/image2.jpg" alt="Produktbilde 2">
+                <h3>Produktnavn 2</h3>
+                <p>Kort beskrivelse av produktet...</p>
+                <span>Pris: $yy.yy</span>
+            </div>
+            <!-- Gjenta for flere produkter -->
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-section">
+            <h4>Om oss</h4>
+            <p>Gjenvinning og Bruktmarked ble opprettet med et sterkt ønske om å bidra til en mer bærekraftig fremtid. Vår hovedmålsetning er å redusere mengden avfall ved å fremme gjenbruk og resirkulering av produkter. Ved å tilby et marked der folk kan kjøpe og selge brukte varer, håper vi å redusere behovet for produksjon av nye produkter og samtidig gi gjenstander et nytt liv.</p>
+            <p>Vi tror at hver enkelt handling, uansett hvor liten, kan gjøre en forskjell. Vårt mål er å bygge en plattform der bærekraft møter bekvemmelighet, og der samfunnet kan komme sammen for å gjøre en positiv innvirkning på miljøet. Sammen kan vi skape en grønnere og mer bærekraftig fremtid!</p>
+        </div>
+        <div class="footer-section">
+            <h4>Kontakt</h4>
+            <p>[Din kontaktinformasjon]</p>
+        </div>
+        <div class="footer-section">
+            <h4>Følg oss</h4>
+            <p>[Linker til sosiale medier]</p>
+        </div>
+    </div>
+</footer>
+
 </body>
 
 </html>

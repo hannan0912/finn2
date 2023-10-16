@@ -1,28 +1,33 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     padding: 20px;
+    background-color: #f5f2e9; /* Lys brun bakgrunnsfarge */
+    color: #333;
 }
 
 #chatBox {
-    border: 1px solid #ccc;
+    border: 1px solid #d2b48c; /* Lys brun ramme */
     padding: 20px;
     height: 300px;
     overflow-y: auto;
+    background-color: #fff; /* Hvit bakgrunn */
 }
 
 #userMessage {
     width: 70%;
     padding: 10px;
+    border: 1px solid #d2b48c; /* Lys brun kant */
 }
 
 button {
     padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
+    background-color: #8b5d2e; /* Mørkere brun knappefarge */
+    color: #fff;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #d2b48c; /* Lysere brun hover-effekt på knappen */
 }

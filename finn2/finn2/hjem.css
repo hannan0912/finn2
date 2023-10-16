@@ -4,7 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f5f2e9; /* Lys brun bakgrunnsfarge */
+    background-color: #f5f2e9;
 }
 
 .container {
@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    background-color: #8b5d2e; /* Mørkere brun header */
+    background-color: #8b5d2e;
     color: #fff;
     padding: 20px 0;
     text-align: center;
@@ -37,35 +37,47 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #8b5d2e; /* Mørkere brun hover-effekt */
+    color: #8b5d2e;
 }
 
-.product {
+/* Endring her for å vise produkter, omdømme etc. horisontalt */
+.horizontal-list {
+    display: flex;
+    overflow-x: scroll; /* Gjør at man kan scrolle horisontalt om det er mange elementer */
+    white-space: nowrap; /* Hindrer innholdet i å bryte til neste linje */
+}
+
+.horizontal-list .product,
+.horizontal-list .reputation-item,
+.horizontal-list .review-item {
     width: 200px;
     height: 300px;
     margin: 20px;
     padding: 20px;
-    border: 1px solid #d2b48c; /* Lys brun ramme rundt produktene */
-    background-color: #fff; /* Hvit bakgrunn inni produktene */
+    border: 1px solid #d2b48c;
+    background-color: #fff;
     display: inline-block;
-    vertical-align: top;
     text-align: center;
     transition: transform 0.3s ease;
 }
 
-.product img {
+.horizontal-list .product img,
+.horizontal-list .reputation-item img,
+.horizontal-list .review-item img {
     max-width: 100%;
     max-height: 150px;
     margin-bottom: 10px;
 }
 
-.product:hover {
+.horizontal-list .product:hover,
+.horizontal-list .reputation-item:hover,
+.horizontal-list .review-item:hover {
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 button {
-    background-color: #8b5d2e; /* Mørkere brun knappefarge */
+    background-color: #8b5d2e;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -74,22 +86,11 @@ button {
 }
 
 button:hover {
-    background-color: #d2b48c; /* Lysere brun hover-effekt på knappen */
+    background-color: #d2b48c;
 }
 
 #form-container {
     margin-bottom: 20px;
-}
-
-.ad {
-    margin: 20px 0;
-    padding: 20px;
-    border: 1px solid #ddd;
-}
-
-.ad img {
-    max-width: 100%;
-    margin-bottom: 10px;
 }
 
 .logout-button {
@@ -115,28 +116,4 @@ button:hover {
 
 .logout-button a:hover {
     color: #d2b48c;
-}
-
-/* Styles from lb.css integrated below */
-
-#seller-list {
-    list-style: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-#seller-list li {
-    margin-bottom: 10px;
-    color: #007bff;
-}
-
-#seller-profile {
-    margin-top: 20px;
-    border: 1px solid #ddd;
-    padding: 20px;
-    display: none;
-}
-
-#stars span {
-    color: gold;
 }

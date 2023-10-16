@@ -5,5 +5,5 @@ document.getElementById("loginBtn").addEventListener("click", function(){
     localStorage.setItem('loggedInUser', user);
 
     // Naviger til forsiden
-    window.location.href = "forside.html"; // Angi den faktiske filnavnet for forsiden her
+    window.location.href = "hjem.html"; // Angi den faktiske filnavnet for forsiden her
 });
