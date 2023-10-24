@@ -34,7 +34,7 @@ db.run(`CREATE TABLE IF NOT EXISTS messages (
 });
 
 app.get('/', (req, res) => {
-    res.send('Velkommen til vår chat server!');
+    res.send('Velkommen til vår chat server! - Gruppe 10!');
 });
 
 app.get('/messages', (req, res) => {
