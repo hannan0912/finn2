@@ -2,7 +2,8 @@ const sqlite3 = require('sqlite3').verbose();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 
 // Middleware for å tolke JSON data
 app.use(cors());
@@ -76,7 +77,7 @@ app.post('/messages', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Serveren kjører på http://localhost:${port}`);
+    console.log(`Serveren kjører på port: ${port}`);
 });
 app.delete('/messages', (req, res) => {
     const sender = req.query.sender;
