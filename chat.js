@@ -1,3 +1,5 @@
+const HEROKU_URL = 'https://finn2-94c8f8301a5b.herokuapp.com';
+
 // Hente innlogget bruker fra localStorage
 const loggedInUser = localStorage.getItem('loggedInUser');
 
@@ -9,7 +11,7 @@ function fetchMessagesForLoggedInUser(recipient) {
         return;
     }
 
-    axios.get('http://localhost:3000/messages', {
+    axios.get(`${HEROKU_URL}/messages`, {
         params: {
             sender: sender,
             recipient: recipient
@@ -40,7 +42,7 @@ function sendMessage() {
     const recipient = document.getElementById('recipientSelect').value;
     const content = document.getElementById('userMessage').value;
 
-    axios.post('http://localhost:3000/messages', {
+    axios.post(`${HEROKU_URL}/messages`, {
         sender: sender,
         recipient: recipient,
         content: content
@@ -81,11 +83,12 @@ document.getElementById('recipientSelect').addEventListener('change', function()
     const recipient = this.value;
     fetchMessagesForLoggedInUser(recipient);
 });
+
 function clearChat() {
     const sender = localStorage.getItem('loggedInUser');
     const recipient = document.getElementById('recipientSelect').value;
 
-    axios.delete('http://localhost:3000/messages', {
+    axios.delete(`${HEROKU_URL}/messages`, {
         params: {
             sender: sender,
             recipient: recipient
@@ -100,4 +103,3 @@ function clearChat() {
             console.error('Error deleting messages:', error);
         });
 }
-
