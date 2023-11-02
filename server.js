@@ -95,4 +95,3 @@ app.delete('/messages', (req, res) => {
         res.json({ message: 'Messages deleted successfully.' });
     });
 });
-
